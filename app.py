@@ -1,5 +1,6 @@
 from flask import *
 import pandas as pd
+import numpy as np
 import json, time
 import pickle
 import re
@@ -43,6 +44,8 @@ def request_page():
     inputs = request.args.get('inputs')                              # /predict/?inputs=inputs
     inputs= [float(n) for n in re.findall('[-+]?(?:\d*\.*\d+)', inputs)]
 
+    inputs = np.array(inputs).reshape(1, -1)
+    
     inputs = scaler.transform(inputs)
 
     output = float(lr_model.predict([inputs])[0][0])
