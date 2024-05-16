@@ -43,7 +43,7 @@ def request_page():
     inputs = request.args.get('inputs')                              # /predict/?inputs=inputs
     inputs= [float(n) for n in re.findall('[-+]?(?:\d*\.*\d+)', inputs)]
 
-    inputs = scaler..transform(inputs)
+    inputs = scaler.transform(inputs)
 
     output = float(lr_model.predict([inputs])[0][0])
 
