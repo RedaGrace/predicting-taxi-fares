@@ -48,7 +48,7 @@ def request_page():
     
     inputs = scaler.transform(inputs)
 
-    output = float(lr_model.predict([inputs])[0][0])
+    output = float(lr_model.predict(inputs)[0][0])
 
     response = "The estimated taxi fare predicted based on the entered data is {:.2f}".format(output)
     
