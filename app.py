@@ -50,7 +50,7 @@ def request_page():
 
     output = float(lr_model.predict(inputs)[0][0])
 
-    response = "The estimated taxi fare predicted based on the entered data is {:.2f}".format(output)
+    response = "The estimated taxi fare predicted based on the entered data is ${:.2f}".format(output)
     
                      
     json_dump = json.dumps(response)
